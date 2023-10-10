@@ -4,7 +4,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en TZ=Asia/Kolkata
 
 WORKDIR /usr/src/app
 
-RUN python3-pip \
+RUN python3 \
     git \
     libtinyxml2-9 \
     libcurl3-gnutls \

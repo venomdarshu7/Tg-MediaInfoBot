@@ -4,21 +4,6 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en TZ=Asia/Kolkata
 
 WORKDIR /usr/src/app
 
-RUN git \
-    libtinyxml2-9 \
-    libcurl3-gnutls \
-    libmms0 \
-    libzen0v5 \
-    libcurl4-gnutls-dev \
-    libzen-dev \
-    wget \
-    ffmpeg \
-    libsox-fmt-mp3 \
-    sox \
-    locales \
-    megatools \
-  && rm -rf /var/lib/apt/lists/*
-
 RUN wget -q -O /tmp/libzen0v5.deb http://th.archive.ubuntu.com/ubuntu/pool/universe/libz/libzen/libzen0v5_0.4.40-1_amd64.deb \
   && dpkg -i /tmp/libzen0v5.deb \
   && rm /tmp/libzen0v5.deb

@@ -17,21 +17,20 @@ from TelegramBot.helpers.functions import *
 from TelegramBot.helpers.filters import check_auth
 from TelegramBot.helpers.gdrivehelper import GoogleDriveHelper
 
-
- thumb=thumb.jpg,
-    async def extract_ss(eq_thumb):
-        async with thumb_sem:
-            cmd[5] = str((duration // total) * eq_thumb)
-            tstamps[f"thumb.jpg"] = strftime("%H:%M:%S", gmtime(float(cmd[5])))
-            cmd[-1] = ospath.join(des_dir, f"thumb.jpg")
-            task = await create_subprocess_exec(*cmd, stderr=PIPE)
-            return (task, await task.wait(), eq_thumb)
+thumb_path = f"thumb.jpg"
+thumb = async def extract_ss(eq_thumb):
+          async with thumb_sem:
+              cmd[5] = str((duration // total) * eq_thumb)
+              tstamps[f"thumb.jpg"] = strftime("%H:%M:%S", gmtime(float(cmd[5])))
+              cmd[-1] = ospath.join(des_dir, f"thumb.jpg")
+              task = await create_subprocess_exec(*cmd, stderr=PIPE)
+              return (task, await task.wait(), eq_thumb)
     
     tasks = [extract_ss(eq_thumb) for eq_thumb in range(1, total+1)]
     status = await gather(*tasks)
     
     for task, rtype, eq_thumb in status:
-        if rtype != 0 or not await aiopath.exists(ospath.join(des_dir, f"wz_thumb_{eq_thumb}.jpg")):
+        if rtype != 0 or not await aiopath.exists(ospath.join(des_dir, f"thumb.jpg")):
             err = (await task.stderr.read()).decode().strip()
             LOGGER.error(f'Error while extracting thumbnail no. {eq_thumb} from video. Name: {video_file} stderr: {err}')
             await aiormtree(des_dir)

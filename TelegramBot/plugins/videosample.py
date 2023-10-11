@@ -18,13 +18,6 @@ from TelegramBot.helpers.filters import check_auth
 from TelegramBot.helpers.gdrivehelper import GoogleDriveHelper
 
 
-# thumbnail of the video file.
-thumb_path = f"thumb.jpg"
-thumb = requests.get(
-    "https://te.legra.ph/file/508f1cd599bb3d9352e88.jpg", allow_redirects=True)
-open(thumb_path, "wb").write(thumb.content)
-
-
 async def generate_videosample_from_link(
     message,
     replymsg,

@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en TZ=Asia/Kolkata
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en
 
 WORKDIR /usr/src/app
 
@@ -19,13 +19,14 @@ RUN apt-get update && apt-get install -y \
     sox \
     locales \
     megatools \
+    libmediainfo-dev \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget -q -O /tmp/libzen0v5.deb http://th.archive.ubuntu.com/ubuntu/pool/universe/libz/libzen/libzen0v5_0.4.41-2_amd64.deb \
+RUN wget -q -O /tmp/libzen0v5.deb http://th.archive.ubuntu.com/ubuntu/pool/universe/libz/libzen/libzen0v5_0.4.40-1_amd64.deb \
   && dpkg -i /tmp/libzen0v5.deb \
   && rm /tmp/libzen0v5.deb
 
-RUN wget -q -O /tmp/libmediainfo0v5.deb http://ftp.de.debian.org/debian/pool/main/libm/libmediainfo/libmediainfo0v5_23.10+dfsg-1_amd64.deb \
+RUN wget -q -O /tmp/libmediainfo0v5.deb http://launchpadlibrarian.net/643009578/libmediainfo0v5_22.12+dfsg-1_amd64.deb \
   && dpkg -i /tmp/libmediainfo0v5.deb \
   && rm /tmp/libmediainfo0v5.deb
 
@@ -33,11 +34,7 @@ RUN wget -q -O /tmp/libtinyxml2-6a.deb http://kr.archive.ubuntu.com/ubuntu/pool/
   && dpkg -i /tmp/libtinyxml2-6a.deb \
   && rm /tmp/libtinyxml2-6a.deb
 
-RUN wget -q -O /tmp/libmediainfo-dev.deb http://ftp.de.debian.org/debian/pool/main/libm/libmediainfo/libmediainfo-dev_23.10+dfsg-1_amd64.deb \
-  && dpkg -i /tmp/libmediainfo-dev.deb \
-  && rm /tmp/libmediainfo-dev.deb
-
-RUN wget -q -O /tmp/mediainfo.deb https://mediaarea.net/download/binary/mediainfo/23.10/mediainfo_23.10-1_amd64.xUbuntu_20.04.deb \
+RUN wget -q -O /tmp/mediainfo.deb https://mediaarea.net/download/binary/mediainfo/22.12/mediainfo_22.12-1_amd64.xUbuntu_20.04.deb \
   && dpkg -i /tmp/mediainfo.deb \
   && rm /tmp/mediainfo.deb
 

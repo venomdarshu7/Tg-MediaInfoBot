@@ -51,7 +51,6 @@ async def generate_videosample_from_link(
     await message.reply_video(
         video=output_path,
         caption=f"[**{duration}min Sample**] {original_name}",
-        thumb=thumb_path,
         quote=True)
 
     await replymsg.delete()

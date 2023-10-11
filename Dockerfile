@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en TZ=Asia/Kolkata
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en
 
 WORKDIR /usr/src/app
 

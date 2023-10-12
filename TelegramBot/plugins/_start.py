@@ -13,7 +13,6 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 START_BUTTON = [
     [
         InlineKeyboardButton("📖 Commands", callback_data="COMMAND_BUTTON"),
-        InlineKeyboardButton("👨‍💻 About me", callback_data="ABOUT_BUTTON"),
     ],
 ]
 
